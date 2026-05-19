@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biografia</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="avatar-wrapper">
+        <img src="https://api.dicebear.com/7.x/personas/svg?seed=biography" alt="Foto de perfil" class="avatar" />
+      </div>
+      <h1 class="name">Nome da Pessoa</h1>
+      <p class="tagline">Uma vida cheia de histórias para contar ✨</p>
+      <div class="hero-meta">
+        <span>📍 Cidade, Brasil</span>
+        <span>🎂 00/00/0000</span>
+        <span>⭐ Signo</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="sticky-nav">
+    <a href="#sobre">Sobre</a>
+    <a href="#amigos">Amigos</a>
+    <a href="#livros">Livros</a>
+    <a href="#namorado">Namorado</a>
+    <a href="#hobbies">Hobbies</a>
+  </nav>
+
+  <main>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="icon">👤</span> Sobre</h2>
+        <div class="card about-card">
+          <p class="bio-text">
+            Escreva aqui uma introdução sobre a pessoa. Fale sobre sua personalidade, sua história,
+            de onde veio e o que a torna especial. Essa é a parte mais livre da biografia.
+          </p>
+          <div class="stats">
+            <div class="stat"><strong>00</strong><span>Anos</span></div>
+            <div class="stat"><strong>00</strong><span>Amigos</span></div>
+            <div class="stat"><strong>00</strong><span>Livros lidos</span></div>
+            <div class="stat"><strong>00</strong><span>Hobbies</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AMIGOS -->
+    <section id="amigos" class="section section-alt">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="icon">👯</span> Amigos</h2>
+        <div class="cards-grid">
+
+          <div class="friend-card">
+            <img src="https://api.dicebear.com/7.x/personas/svg?seed=friend1" alt="Amigo 1" class="friend-avatar" />
+            <h3>Nome do Amigo</h3>
+            <p class="friend-since">Amigos desde 0000</p>
+            <p class="friend-desc">Como se conheceram e o que os une. Uma frase especial sobre essa amizade.</p>
+            <span class="tag">Melhor amigo</span>
+          </div>
+
+          <div class="friend-card">
+            <img src="https://api.dicebear.com/7.x/personas/svg?seed=friend2" alt="Amigo 2" class="friend-avatar" />
+            <h3>Nome do Amigo</h3>
+            <p class="friend-since">Amigos desde 0000</p>
+            <p class="friend-desc">Como se conheceram e o que os une. Uma frase especial sobre essa amizade.</p>
+            <span class="tag">Da escola</span>
+          </div>
+
+          <div class="friend-card">
+            <img src="https://api.dicebear.com/7.x/personas/svg?seed=friend3" alt="Amigo 3" class="friend-avatar" />
+            <h3>Nome do Amigo</h3>
+            <p class="friend-since">Amigos desde 0000</p>
+            <p class="friend-desc">Como se conheceram e o que os une. Uma frase especial sobre essa amizade.</p>
+            <span class="tag">Da faculdade</span>
+          </div>
+
+        </div>
+        <button class="add-btn" onclick="addFriend()">+ Adicionar amigo</button>
+      </div>
+    </section>
+
+    <!-- LIVROS -->
+    <section id="livros" class="section">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="icon">📚</span> Livros</h2>
+        <div class="books-list">
+
+          <div class="book-card">
+            <div class="book-cover" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+              <span class="book-initial">L</span>
+            </div>
+            <div class="book-info">
+              <h3>Título do Livro</h3>
+              <p class="book-author">Autor do Livro</p>
+              <div class="stars">★★★★★</div>
+              <p class="book-review">O que achou do livro? Uma opinião curta e sincera.</p>
+            </div>
+          </div>
+
+          <div class="book-card">
+            <div class="book-cover" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+              <span class="book-initial">T</span>
+            </div>
+            <div class="book-info">
+              <h3>Título do Livro</h3>
+              <p class="book-author">Autor do Livro</p>
+              <div class="stars">★★★★☆</div>
+              <p class="book-review">O que achou do livro? Uma opinião curta e sincera.</p>
+            </div>
+          </div>
+
+          <div class="book-card">
+            <div class="book-cover" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+              <span class="book-initial">O</span>
+            </div>
+            <div class="book-info">
+              <h3>Título do Livro</h3>
+              <p class="book-author">Autor do Livro</p>
+              <div class="stars">★★★★★</div>
+              <p class="book-review">O que achou do livro? Uma opinião curta e sincera.</p>
+            </div>
+          </div>
+
+        </div>
+        <button class="add-btn" onclick="addBook()">+ Adicionar livro</button>
+      </div>
+    </section>
+
+    <!-- NAMORADO -->
+    <section id="namorado" class="section section-alt">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="icon">💕</span> Namorado</h2>
+        <div class="card couple-card">
+          <div class="couple-avatars">
+            <div class="couple-person">
+              <img src="https://api.dicebear.com/7.x/personas/svg?seed=me" alt="Eu" class="couple-avatar" />
+              <span>Eu</span>
+            </div>
+            <div class="heart-center">💖</div>
+            <div class="couple-person">
+              <img src="https://api.dicebear.com/7.x/personas/svg?seed=partner" alt="Namorado" class="couple-avatar" />
+              <span>Namorado</span>
+            </div>
+          </div>
+          <div class="couple-info">
+            <div class="couple-detail"><strong>📅 Juntos desde:</strong> 00/00/0000</div>
+            <div class="couple-detail"><strong>📍 Onde se conheceram:</strong> Lugar especial</div>
+            <div class="couple-detail"><strong>🌟 O que os une:</strong> Interesses em comum</div>
+          </div>
+          <blockquote class="love-quote">
+            "Uma frase especial que descreve o relacionamento ou uma citação favorita do casal."
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOBBIES -->
+    <section id="hobbies" class="section">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="icon">🎨</span> Hobbies</h2>
+        <div class="hobbies-grid">
+
+          <div class="hobby-card">
+            <div class="hobby-icon">🎵</div>
+            <h3>Música</h3>
+            <p>Descreva como a música faz parte da vida desta pessoa. Estilos favoritos, artistas, memórias.</p>
+          </div>
+
+          <div class="hobby-card">
+            <div class="hobby-icon">🏃</div>
+            <h3>Esportes</h3>
+            <p>Quais esportes pratica? Com que frequência? Alguma conquista especial?</p>
+          </div>
+
+          <div class="hobby-card">
+            <div class="hobby-icon">🎬</div>
+            <h3>Cinema & Séries</h3>
+            <p>Filmes e séries favoritos. O que gosta de assistir e com quem.</p>
+          </div>
+
+          <div class="hobby-card">
+            <div class="hobby-icon">✈️</div>
+            <h3>Viagens</h3>
+            <p>Lugares já visitados e sonhos de destinos futuros. A viagem mais marcante.</p>
+          </div>
+
+          <div class="hobby-card">
+            <div class="hobby-icon">🍳</div>
+            <h3>Culinária</h3>
+            <p>Receitas favoritas, pratos especiais ou apenas o prazer de comer bem.</p>
+          </div>
+
+          <div class="hobby-card">
+            <div class="hobby-icon">🎮</div>
+            <h3>Games</h3>
+            <p>Jogos favoritos, plataformas preferidas e momentos divertidos.</p>
+          </div>
+
+        </div>
+        <button class="add-btn" onclick="addHobby()">+ Adicionar hobby</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Feito com 💜 · Biografia criada com carinho</p>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <h3 id="modal-title">Adicionar</h3>
+      <div id="modal-fields"></div>
+      <div class="modal-actions">
+        <button onclick="closeModal()" class="btn-cancel">Cancelar</button>
+        <button onclick="saveModal()" class="btn-save">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
