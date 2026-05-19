@@ -1,0 +1,34 @@
+{
+  "name": "Nome da Pessoa",
+  "tagline": "Uma vida cheia de histórias para contar ✨",
+  "location": "Cidade, Brasil",
+  "birthday": "00/00/0000",
+  "sign": "Signo",
+  "avatar": "",
+  "bio": "Escreva aqui uma introdução sobre a pessoa. Fale sobre sua personalidade, sua história, de onde veio e o que a torna especial.",
+  "stats": { "age": "00", "friends": "00", "books": "00", "hobbies": "00" },
+  "friends": [
+    { "id": 1, "name": "Nome do Amigo", "since": "0000", "desc": "Como se conheceram e o que os une.", "tag": "Melhor amigo", "photo": "" }
+  ],
+  "books": [
+    { "id": 1, "title": "Título do Livro", "author": "Autor do Livro", "stars": 5, "review": "O que achou do livro?" }
+  ],
+  "partner": {
+    "myName": "Eu",
+    "partnerName": "Namorado",
+    "since": "00/00/0000",
+    "where": "Lugar especial",
+    "common": "Interesses em comum",
+    "quote": "Uma frase especial que descreve o relacionamento.",
+    "myPhoto": "",
+    "partnerPhoto": ""
+  },
+  "hobbies": [
+    { "id": 1, "emoji": "🎵", "name": "Música", "desc": "Descreva como a música faz parte da vida desta pessoa." },
+    { "id": 2, "emoji": "🏃", "name": "Esportes", "desc": "Quais esportes pratica? Com que frequência?" },
+    { "id": 3, "emoji": "🎬", "name": "Cinema & Séries", "desc": "Filmes e séries favoritos." },
+    { "id": 4, "emoji": "✈️", "name": "Viagens", "desc": "Lugares já visitados e sonhos de destinos futuros." },
+    { "id": 5, "emoji": "🍳", "name": "Culinária", "desc": "Receitas favoritas, pratos especiais." },
+    { "id": 6, "emoji": "🎮", "name": "Games", "desc": "Jogos favoritos, plataformas preferidas." }
+  ]
+}

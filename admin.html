@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editor · Biografia</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="pin-screen" class="pin-screen">
+  <div class="pin-box">
+    <div class="pin-icon">🔐</div>
+    <h2 id="pin-title">Área restrita</h2>
+    <p id="pin-subtitle">Digite sua senha de 4 dígitos</p>
+    <div class="pin-inputs">
+      <input type="password" inputmode="numeric" maxlength="1" class="pin-digit" />
+      <input type="password" inputmode="numeric" maxlength="1" class="pin-digit" />
+      <input type="password" inputmode="numeric" maxlength="1" class="pin-digit" />
+      <input type="password" inputmode="numeric" maxlength="1" class="pin-digit" />
+    </div>
+    <p id="pin-error" class="pin-error hidden">Senha incorreta. Tente novamente.</p>
+    <button onclick="checkPin()">Entrar</button>
+  </div>
+</div>
+
+<!-- PAINEL ADMIN -->
+<div id="admin-panel" class="hidden">
+
+  <header class="admin-header">
+    <div class="admin-header-inner">
+      <span class="admin-logo">✏️ Editor de Biografia</span>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a href="index.html" target="_blank" class="preview-link">👁 Ver site</a>
+        <button class="publish-btn" id="publish-btn" onclick="publish()">
+          <span id="publish-text">🚀 Publicar</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="admin-content">
+
+    <!-- CONFIGURAÇÃO -->
+    <div class="admin-section">
+      <h3 class="admin-section-title">⚙️ Configuração</h3>
+      <div class="admin-card">
+        <div class="field-group">
+          <label>Token do GitHub <a href="https://github.com/settings/tokens/new?scopes=public_repo&description=Biografia" target="_blank" class="help-link">→ Como criar (clique aqui)</a></label>
+          <div class="input-row">
+            <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxx" autocomplete="off" />
+            <button onclick="saveToken()" class="btn-sm">Salvar</button>
+          </div>
+          <p class="field-hint" id="token-status"></p>
+        </div>
+        <div class="field-group" style="margin-top:8px">
+          <label>Alterar senha (4 dígitos)</label>
+          <div class="input-row">
+            <input type="password" inputmode="numeric" id="new-pin" maxlength="4" placeholder="Nova senha" />
+            <button onclick="changePin()" class="btn-sm">Alterar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOBRE -->
+    <div class="admin-section">
+      <h3 class="admin-section-title">👤 Sobre</h3>
+      <div class="admin-card">
+        <div class="fields-row">
+          <div class="field-group">
+            <label>Nome</label>
+            <input type="text" id="f-name" placeholder="Nome completo" />
+          </div>
+          <div class="field-group">
+            <label>Foto de perfil (URL da foto)</label>
+            <input type="url" id="f-avatar" placeholder="https://..." />
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Frase / descrição curta</label>
+          <input type="text" id="f-tagline" placeholder="Uma vida cheia de histórias ✨" />
+        </div>
+        <div class="fields-row">
+          <div class="field-group">
+            <label>Cidade</label>
+            <input type="text" id="f-location" placeholder="São Paulo, Brasil" />
+          </div>
+          <div class="field-group">
+            <label>Data de nascimento</label>
+            <input type="text" id="f-birthday" placeholder="01/01/2000" />
+          </div>
+          <div class="field-group">
+            <label>Signo</label>
+            <input type="text" id="f-sign" placeholder="Áries" />
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Biografia</label>
+          <textarea id="f-bio" rows="4" placeholder="Escreva aqui sobre a pessoa..."></textarea>
+        </div>
+        <div class="fields-row">
+          <div class="field-group">
+            <label>Idade</label>
+            <input type="text" id="f-stat-age" placeholder="25" />
+          </div>
+          <div class="field-group">
+            <label>Número de amigos</label>
+            <input type="text" id="f-stat-friends" placeholder="10" />
+          </div>
+          <div class="field-group">
+            <label>Livros lidos</label>
+            <input type="text" id="f-stat-books" placeholder="30" />
+          </div>
+          <div class="field-group">
+            <label>Hobbies</label>
+            <input type="text" id="f-stat-hobbies" placeholder="6" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AMIGOS -->
+    <div class="admin-section">
+      <h3 class="admin-section-title">👯 Amigos</h3>
+      <div id="friends-editor"></div>
+      <button class="add-item-btn" onclick="addFriendItem()">+ Adicionar amigo</button>
+    </div>
+
+    <!-- LIVROS -->
+    <div class="admin-section">
+      <h3 class="admin-section-title">📚 Livros</h3>
+      <div id="books-editor"></div>
+      <button class="add-item-btn" onclick="addBookItem()">+ Adicionar livro</button>
+    </div>
+
+    <!-- NAMORADO -->
+    <div class="admin-section">
+      <h3 class="admin-section-title">💕 Namorado</h3>
+      <div class="admin-card">
+        <div class="fields-row">
+          <div class="field-group">
+            <label>Meu nome</label>
+            <input type="text" id="f-my-name" placeholder="Eu" />
+          </div>
+          <div class="field-group">
+            <label>Nome dele / dela</label>
+            <input type="text" id="f-partner-name" placeholder="Namorado" />
+          </div>
+        </div>
+        <div class="fields-row">
+          <div class="field-group">
+            <label>Minha foto (URL)</label>
+            <input type="url" id="f-my-photo" placeholder="https://..." />
+          </div>
+          <div class="field-group">
+            <label>Foto dele/dela (URL)</label>
+            <input type="url" id="f-partner-photo" placeholder="https://..." />
+          </div>
+        </div>
+        <div class="fields-row">
+          <div class="field-group">
+            <label>Juntos desde</label>
+            <input type="text" id="f-partner-since" placeholder="01/01/2022" />
+          </div>
+          <div class="field-group">
+            <label>Onde se conheceram</label>
+            <input type="text" id="f-partner-where" placeholder="Na faculdade" />
+          </div>
+        </div>
+        <div class="field-group">
+          <label>O que os une</label>
+          <input type="text" id="f-partner-common" placeholder="Amor por músicas, viagens..." />
+        </div>
+        <div class="field-group">
+          <label>Citação especial</label>
+          <textarea id="f-partner-quote" placeholder="Uma frase especial do casal..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOBBIES -->
+    <div class="admin-section">
+      <h3 class="admin-section-title">🎨 Hobbies</h3>
+      <div id="hobbies-editor"></div>
+      <button class="add-item-btn" onclick="addHobbyItem()">+ Adicionar hobby</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast hidden"></div>
+
+<script>
+const REPO_OWNER = 'andrewtavares-create';
+const REPO_NAME  = 'Site-biogr-fico-';
+const BRANCH     = 'gh-pages';
+
+// ===== PIN =====
+(function initPin() {
+  const stored = localStorage.getItem('bio_pin');
+  if (!stored) {
+    document.getElementById('pin-title').textContent = 'Criar senha';
+    document.getElementById('pin-subtitle').textContent = 'Escolha uma senha de 4 dígitos para proteger o editor';
+  }
+  const digits = document.querySelectorAll('.pin-digit');
+  digits.forEach((d, i) => {
+    d.addEventListener('input', () => {
+      d.value = d.value.replace(/\D/g, '');
+      if (d.value && i < digits.length - 1) digits[i+1].focus();
+    });
+    d.addEventListener('keydown', e => {
+      if (e.key === 'Backspace' && !d.value && i > 0) digits[i-1].focus();
+      if (e.key === 'Enter') checkPin();
+    });
+  });
+  digits[0].focus();
+})();
+
+function checkPin() {
+  const pin = Array.from(document.querySelectorAll('.pin-digit')).map(d => d.value).join('');
+  if (pin.length < 4) return;
+  const stored = localStorage.getItem('bio_pin');
+  if (!stored) {
+    localStorage.setItem('bio_pin', pin);
+    unlockPanel();
+  } else if (pin === stored) {
+    unlockPanel();
+  } else {
+    document.getElementById('pin-error').classList.remove('hidden');
+    document.querySelectorAll('.pin-digit').forEach(d => {
+      d.value = '';
+      d.classList.add('shake');
+      setTimeout(() => d.classList.remove('shake'), 400);
+    });
+    document.querySelectorAll('.pin-digit')[0].focus();
+  }
+}
+
+function unlockPanel() {
+  document.getElementById('pin-screen').classList.add('hidden');
+  document.getElementById('admin-panel').classList.remove('hidden');
+  loadData();
+}
+
+function changePin() {
+  const p = document.getElementById('new-pin').value.replace(/\D/g, '');
+  if (p.length !== 4) { toast('A senha deve ter exatamente 4 dígitos', 'error'); return; }
+  localStorage.setItem('bio_pin', p);
+  document.getElementById('new-pin').value = '';
+  toast('Senha alterada com sucesso!', 'success');
+}
+
+// ===== TOKEN =====
+function saveToken() {
+  const t = document.getElementById('token-input').value.trim();
+  if (!t) return;
+  localStorage.setItem('bio_token', t);
+  document.getElementById('token-input').value = '';
+  updateTokenStatus();
+  toast('Token salvo!', 'success');
+}
+
+function updateTokenStatus() {
+  const el = document.getElementById('token-status');
+  if (localStorage.getItem('bio_token')) {
+    el.textContent = '✅ Token configurado — pronto para publicar';
+    el.style.color = '#059669';
+  } else {
+    el.textContent = '⚠️ Token não configurado. Sem ele não é possível publicar.';
+    el.style.color = '#d97706';
+  }
+}
+
+// ===== LOAD =====
+async function loadData() {
+  updateTokenStatus();
+  let data;
+  try {
+    const r = await fetch('data.json?t=' + Date.now());
+    data = await r.json();
+  } catch { data = defaultData(); }
+  fillForm(data);
+}
+
+function defaultData() {
+  return {
+    name:'', tagline:'', location:'', birthday:'', sign:'', avatar:'', bio:'',
+    stats:{age:'', friends:'', books:'', hobbies:''},
+    friends:[], books:[],
+    partner:{myName:'Eu', partnerName:'', since:'', where:'', common:'', quote:'', myPhoto:'', partnerPhoto:''},
+    hobbies:[]
+  };
+}
+
+function fillForm(d) {
+  val('f-name', d.name); val('f-avatar', d.avatar);
+  val('f-tagline', d.tagline); val('f-location', d.location);
+  val('f-birthday', d.birthday); val('f-sign', d.sign);
+  val('f-bio', d.bio);
+  val('f-stat-age', d.stats?.age); val('f-stat-friends', d.stats?.friends);
+  val('f-stat-books', d.stats?.books); val('f-stat-hobbies', d.stats?.hobbies);
+  const p = d.partner || {};
+  val('f-my-name', p.myName); val('f-partner-name', p.partnerName);
+  val('f-my-photo', p.myPhoto); val('f-partner-photo', p.partnerPhoto);
+  val('f-partner-since', p.since); val('f-partner-where', p.where);
+  val('f-partner-common', p.common); val('f-partner-quote', p.quote);
+  document.getElementById('friends-editor').innerHTML = '';
+  (d.friends||[]).forEach(f => addFriendItem(f));
+  document.getElementById('books-editor').innerHTML = '';
+  (d.books||[]).forEach(b => addBookItem(b));
+  document.getElementById('hobbies-editor').innerHTML = '';
+  (d.hobbies||[]).forEach(h => addHobbyItem(h));
+}
+
+function val(id, v) { const e = document.getElementById(id); if (e) e.value = v||''; }
+
+// ===== DYNAMIC ITEMS =====
+let uid = 1;
+
+function addFriendItem(f = {}) {
+  const id = uid++;
+  const div = document.createElement('div');
+  div.className = 'admin-card item-card';
+  div.innerHTML = `
+    <button class="remove-btn" onclick="this.closest('.item-card').remove()" title="Remover">✕</button>
+    <div class="fields-row">
+      <div class="field-group"><label>Nome</label><input type="text" name="name" value="${x(f.name)}" placeholder="Nome do amigo" /></div>
+      <div class="field-group"><label>Amigos desde</label><input type="text" name="since" value="${x(f.since)}" placeholder="2019" /></div>
+      <div class="field-group"><label>Rótulo</label><input type="text" name="tag" value="${x(f.tag)}" placeholder="Melhor amigo" /></div>
+    </div>
+    <div class="field-group"><label>Foto (URL)</label><input type="url" name="photo" value="${x(f.photo)}" placeholder="https://..." /></div>
+    <div class="field-group"><label>Descrição</label><textarea name="desc" placeholder="Como se conheceram...">${x(f.desc)}</textarea></div>
+  `;
+  document.getElementById('friends-editor').appendChild(div);
+}
+
+function addBookItem(b = {}) {
+  const div = document.createElement('div');
+  div.className = 'admin-card item-card';
+  div.innerHTML = `
+    <button class="remove-btn" onclick="this.closest('.item-card').remove()" title="Remover">✕</button>
+    <div class="fields-row">
+      <div class="field-group"><label>Título</label><input type="text" name="title" value="${x(b.title)}" placeholder="Nome do livro" /></div>
+      <div class="field-group"><label>Autor</label><input type="text" name="author" value="${x(b.author)}" placeholder="Nome do autor" /></div>
+      <div class="field-group"><label>Estrelas (1-5)</label><input type="number" name="stars" min="1" max="5" value="${b.stars||5}" /></div>
+    </div>
+    <div class="field-group"><label>Opinião</label><textarea name="review" placeholder="O que achou do livro?">${x(b.review)}</textarea></div>
+  `;
+  document.getElementById('books-editor').appendChild(div);
+}
+
+function addHobbyItem(h = {}) {
+  const div = document.createElement('div');
+  div.className = 'admin-card item-card';
+  div.innerHTML = `
+    <button class="remove-btn" onclick="this.closest('.item-card').remove()" title="Remover">✕</button>
+    <div class="fields-row">
+      <div class="field-group" style="max-width:100px"><label>Emoji</label><input type="text" name="emoji" value="${x(h.emoji)}" placeholder="🎵" /></div>
+      <div class="field-group"><label>Nome</label><input type="text" name="name" value="${x(h.name)}" placeholder="Música" /></div>
+    </div>
+    <div class="field-group"><label>Descrição</label><textarea name="desc" placeholder="Conte sobre esse hobby...">${x(h.desc)}</textarea></div>
+  `;
+  document.getElementById('hobbies-editor').appendChild(div);
+}
+
+// ===== COLLECT =====
+function collect() {
+  return {
+    name: g('f-name'), tagline: g('f-tagline'),
+    location: g('f-location'), birthday: g('f-birthday'),
+    sign: g('f-sign'), avatar: g('f-avatar'), bio: g('f-bio'),
+    stats: {
+      age: g('f-stat-age'), friends: g('f-stat-friends'),
+      books: g('f-stat-books'), hobbies: g('f-stat-hobbies')
+    },
+    friends: items('friends-editor', ['name','since','tag','photo','desc']),
+    books:   items('books-editor',   ['title','author','stars','review']),
+    partner: {
+      myName: g('f-my-name'), partnerName: g('f-partner-name'),
+      myPhoto: g('f-my-photo'), partnerPhoto: g('f-partner-photo'),
+      since: g('f-partner-since'), where: g('f-partner-where'),
+      common: g('f-partner-common'), quote: g('f-partner-quote')
+    },
+    hobbies: items('hobbies-editor', ['emoji','name','desc'])
+  };
+}
+
+function g(id) { const e = document.getElementById(id); return e ? e.value.trim() : ''; }
+
+function items(containerId, fields) {
+  return Array.from(document.querySelectorAll(`#${containerId} .item-card`)).map((card, i) => {
+    const obj = { id: i + 1 };
+    fields.forEach(f => { const e = card.querySelector(`[name="${f}"]`); obj[f] = e ? e.value.trim() : ''; });
+    return obj;
+  });
+}
+
+// ===== PUBLISH =====
+async function publish() {
+  const token = localStorage.getItem('bio_token');
+  if (!token) {
+    toast('Configure o token do GitHub primeiro (seção Configuração acima)', 'error');
+    document.querySelector('.admin-section').scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
+
+  const btn = document.getElementById('publish-btn');
+  const txt = document.getElementById('publish-text');
+  btn.disabled = true;
+  txt.textContent = '⏳ Publicando...';
+
+  const json = JSON.stringify(collect(), null, 2);
+  const encoded = btoa(unescape(encodeURIComponent(json)));
+
+  try {
+    const getRes = await fetch(
+      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data.json?ref=${BRANCH}`,
+      { headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github+json' } }
+    );
+    const sha = getRes.ok ? (await getRes.json()).sha : undefined;
+
+    const body = { message: 'Atualizar biografia', content: encoded, branch: BRANCH };
+    if (sha) body.sha = sha;
+
+    const putRes = await fetch(
+      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data.json`,
+      {
+        method: 'PUT',
+        headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json', Accept: 'application/vnd.github+json' },
+        body: JSON.stringify(body)
+      }
+    );
+
+    if (putRes.ok) {
+      toast('✅ Publicado! O site atualiza em instantes.', 'success');
+    } else {
+      const err = await putRes.json();
+      toast('Erro: ' + (err.message || 'Falha ao publicar'), 'error');
+    }
+  } catch (e) {
+    toast('Erro de conexão: ' + e.message, 'error');
+  }
+
+  btn.disabled = false;
+  txt.textContent = '🚀 Publicar';
+}
+
+// ===== HELPERS =====
+function x(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function toast(msg, type = 'info') {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'toast ' + type;
+  clearTimeout(el._t);
+  el._t = setTimeout(() => el.classList.add('hidden'), 4000);
+}
+</script>
+
+</body>
+</html>
