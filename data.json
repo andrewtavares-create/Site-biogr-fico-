@@ -1,34 +1,95 @@
 {
-  "name": "Nome da Pessoa",
+  "name": "Manuela De Araújo Duarte",
   "tagline": "Uma vida cheia de histórias para contar ✨",
-  "location": "Cidade, Brasil",
-  "birthday": "00/00/0000",
-  "sign": "Signo",
+  "location": "Teresina, Brasil",
+  "birthday": "22/02/2008",
+  "sign": "",
   "avatar": "",
-  "bio": "Escreva aqui uma introdução sobre a pessoa. Fale sobre sua personalidade, sua história, de onde veio e o que a torna especial.",
-  "stats": { "age": "00", "friends": "00", "books": "00", "hobbies": "00" },
+  "bio": "É uma pessoa muito alegre, gosta de ler e de assistir, ama doces,",
+  "stats": {
+    "age": "18",
+    "friends": "6",
+    "books": "Muitos",
+    "hobbies": "3"
+  },
   "friends": [
-    { "id": 1, "name": "Nome do Amigo", "since": "0000", "desc": "Como se conheceram e o que os une.", "tag": "Melhor amigo", "photo": "" }
+    {
+      "id": 1,
+      "name": "Andrew",
+      "since": "2023",
+      "tag": "Namorado Lindo",
+      "photo": "",
+      "desc": "Começamos como uma amizade implicante kkkkk, mas graças a Deus nossos caminhos se cruzaram de novo no futuro"
+    },
+    {
+      "id": 2,
+      "name": "Marianna",
+      "since": "2023",
+      "tag": "Mari",
+      "photo": "",
+      "desc": "Se conheceram na escola, eu diria que é uma das que mais faz ela passar raiva pq é muito teimosa, mas isso não muda o fato de ser uma das melhores amigas dela"
+    },
+    {
+      "id": 3,
+      "name": "Rebecca",
+      "since": "2023",
+      "tag": "Miguxa",
+      "photo": "",
+      "desc": "Tem alguns conflitos, pq elas pensam um pouco diferente, mas ainda sim é uma das melhores amigas da Manu"
+    },
+    {
+      "id": 4,
+      "name": "Emanuela",
+      "since": "2023",
+      "tag": "Emanu",
+      "photo": "",
+      "desc": "Não sei muito oq falar kkkk, mas é uma das melhores amigas da Manu também"
+    }
   ],
   "books": [
-    { "id": 1, "title": "Título do Livro", "author": "Autor do Livro", "stars": 5, "review": "O que achou do livro?" }
+    {
+      "id": 1,
+      "title": "Toda a Saga de Acotar",
+      "author": "Sarah J. Maas",
+      "stars": "5",
+      "review": "Facilmente uma das coisas que ela mais ama na vida"
+    },
+    {
+      "id": 2,
+      "title": "Saga de Off Campus",
+      "author": "Elle Kennedy",
+      "stars": "5",
+      "review": "Tá Gostando muito ultimamente"
+    }
   ],
   "partner": {
-    "myName": "Eu",
-    "partnerName": "Namorado",
-    "since": "00/00/0000",
-    "where": "Lugar especial",
-    "common": "Interesses em comum",
-    "quote": "Uma frase especial que descreve o relacionamento.",
+    "myName": "Manu",
+    "partnerName": "Andrew",
     "myPhoto": "",
-    "partnerPhoto": ""
+    "partnerPhoto": "",
+    "since": "21/09/2025",
+    "where": "Na escola",
+    "common": "Os dois tem altíssimo",
+    "quote": "Acho que se fosse descrever a gente em uma frase, seria “Continuar tentando e, apesar das dificuldades, nunca desistir um do outro"
   },
   "hobbies": [
-    { "id": 1, "emoji": "🎵", "name": "Música", "desc": "Descreva como a música faz parte da vida desta pessoa." },
-    { "id": 2, "emoji": "🏃", "name": "Esportes", "desc": "Quais esportes pratica? Com que frequência?" },
-    { "id": 3, "emoji": "🎬", "name": "Cinema & Séries", "desc": "Filmes e séries favoritos." },
-    { "id": 4, "emoji": "✈️", "name": "Viagens", "desc": "Lugares já visitados e sonhos de destinos futuros." },
-    { "id": 5, "emoji": "🍳", "name": "Culinária", "desc": "Receitas favoritas, pratos especiais." },
-    { "id": 6, "emoji": "🎮", "name": "Games", "desc": "Jogos favoritos, plataformas preferidas." }
+    {
+      "id": 1,
+      "emoji": "",
+      "name": "Música",
+      "desc": "Trocaria qualquer um por um show do ferrugem, gosta muito de pagode, mas é bem eclética"
+    },
+    {
+      "id": 2,
+      "emoji": "🎬",
+      "name": "Cinema & Séries",
+      "desc": "AMA Wicked, gosta muito dos filmes da Marvel, tem alguma opniões duvidosas, mas tudo bem"
+    },
+    {
+      "id": 3,
+      "emoji": "🏊🏼‍♂️",
+      "name": "Natação",
+      "desc": "Fazia quando era mais nova e voltou recentemente"
+    }
   ]
 }
