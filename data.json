@@ -4,7 +4,7 @@
   "location": "Teresina, Brasil",
   "birthday": "22/02/2008",
   "sign": "",
-  "avatar": "<https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_0843.jpeg>",
+  "avatar": "https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_0843.jpeg",
   "bio": "É uma pessoa muito alegre, gosta de ler e de assistir, ama doces,",
   "stats": {
     "age": "18",
@@ -18,7 +18,7 @@
       "name": "Andrew",
       "since": "2023",
       "tag": "Namorado Lindo",
-      "photo": "<https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_0175.jpeg>",
+      "photo": "https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_0175.jpeg",
       "desc": "Começamos como uma amizade implicante kkkkk, mas graças a Deus nossos caminhos se cruzaram de novo no futuro"
     },
     {
@@ -26,7 +26,7 @@
       "name": "Marianna",
       "since": "2023",
       "tag": "Mari",
-      "photo": "<https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_1729.jpeg>",
+      "photo": "https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_1729.jpeg",
       "desc": "Se conheceram na escola, eu diria que é uma das que mais faz ela passar raiva pq é muito teimosa, mas isso não muda o fato de ser uma das melhores amigas dela"
     },
     {
@@ -34,7 +34,7 @@
       "name": "Rebecca",
       "since": "2023",
       "tag": "Miguxa",
-      "photo": "<https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_1141.jpeg>",
+      "photo": "https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_1141.jpeg",
       "desc": "Tem alguns conflitos, pq elas pensam um pouco diferente, mas ainda sim é uma das melhores amigas da Manu"
     },
     {
@@ -42,7 +42,7 @@
       "name": "Emanuela",
       "since": "2023",
       "tag": "Emanu",
-      "photo": "<https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_7188.jpeg>",
+      "photo": "https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_7188.jpeg",
       "desc": "Não sei muito oq falar kkkk, mas é uma das melhores amigas da Manu também"
     }
   ],
@@ -65,17 +65,17 @@
   "partner": {
     "myName": "Manu",
     "partnerName": "Andrew",
-    "myPhoto": "<https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_0843.jpeg>",
-    "partnerPhoto": "<https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_0175.jpeg>",
+    "myPhoto": "https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_0843.jpeg",
+    "partnerPhoto": "https://andrewtavares-create.github.io/Site-biogr-fico-/IMG_0175.jpeg",
     "since": "21/09/2025",
     "where": "Na escola",
     "common": "Os dois tem altíssimo",
-    "quote": "Acho que se fosse descrever a gente em uma frase, seria “Continuar tentando e, apesar das dificuldades, nunca desistir um do outro"
+    "quote": "Acho que se fosse descrever a gente em uma frase, seria 'Continuar tentando e, apesar das dificuldades, nunca desistir um do outro'"
   },
   "hobbies": [
     {
       "id": 1,
-      "emoji": "",
+      "emoji": "🎵",
       "name": "Música",
       "desc": "Trocaria qualquer um por um show do ferrugem, gosta muito de pagode, mas é bem eclética"
     },
